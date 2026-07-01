@@ -1,0 +1,11 @@
+beautifulsoup4
+lxml
+openpyxl
+playwright
+requests
+jupyter
+numpy
+pandas
+matplotlib
+seaborn
+scikit-learn
