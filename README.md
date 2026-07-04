@@ -57,7 +57,7 @@ Output: `Real_estate_data.xlsx` in data folder
 ```bash
    jupyter notebook "notebooks/Real Estate Analysis.ipynb"
 ```
-Then run it 
+Run all cells top to bottom.
 
 `load_to_sql.py` loads the scraped data into SQLite and creates the `apartments` view used by the notebook.
 Queries used in the analysis are in `sql/queries/` (includes a window-function query, aggregates etc.).
@@ -70,7 +70,7 @@ An interactive Power BI dashboard (`dashboards/Real_estate_dashboards.pbix`) vis
 2. **Price Drivers**: Feature importance from the Random Forest model and scatter plot showing Area's dominance in price prediction.
 3. **Top Listings**: Top 10 most expensive apartments from the SQL `top_10` view with key details (sector, rooms, price, area).
 
-To open: Run the notebook once to populate `aparts_cleaned`, then open the `.pbix` file in Power BI Desktop and refresh the data source.
+To open: run the notebook once, then open the `.pbix` file in Power BI Desktop and press **Refresh** (Ctrl+R) to load the latest data.
 
 ## Tech Stack
 
