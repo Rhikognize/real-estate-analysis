@@ -31,6 +31,7 @@ Scraped 1043 apartment listings from [immobiliare.md](https://immobiliare.md), c
 - `scraper/load_to_sql.py` - Creating slite3 database
 - `notebooks/Real Estate Analysis.ipynb` - Full EDA + modeling pipeline
 - `sql/queries` - SQL queries
+- `dashboards` - Power BI dashboard
 
 ## How to Run
 
@@ -56,9 +57,16 @@ Output: `Real_estate_data.xlsx` in data folder
 ```bash
    jupyter notebook "notebooks/Real Estate Analysis.ipynb"
 ```
+Then run it 
 
 `load_to_sql.py` loads the scraped data into SQLite and creates the `apartments` view used by the notebook.
 Queries used in the analysis are in `sql/queries/` (includes a window-function query, aggregates etc.).
+
+## Dashboard
+
+An interactive Power BI dashboard (`dashboards/Real_estate_dashboards.pbix`) visualizes the cleaned data across three pages: sector analysis, feature drivers of price using the Random Forest feature importances, and a top-10 listings table powered by the `top_10` SQL view.
+
+To open it: run the notebook once to populate `aparts_cleaned`, then open the `.pbix` file in Power BI Desktop and refresh the data source.
 
 ## Tech Stack
 
@@ -66,6 +74,7 @@ Queries used in the analysis are in `sql/queries/` (includes a window-function q
 - **Analysis**: pandas, numpy, matplotlib, seaborn
 - **ML**: scikit-learn (Linear Regression, Random Forest)
 - **Database**: sqlite, SQL (window functions, views)
+- **Dashobard**: Power BI
 ## Future Work
 
 - Expand data 
