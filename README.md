@@ -12,7 +12,7 @@ Scraped 1043 apartment listings from [immobiliare.md](https://immobiliare.md), c
 4. **How much does sector influence price vs area?** -  Area is ~6.9 more influential than sector on price 
 
 ## Model Performance
-| Model | Avg R² (CV) | MAE (thousands €) |
+| Model | Average R² | MAE |
 |---|---|---|
 | Linear Regression | 0.744 | 22.2 |
 | Random Forest | 0.754 | 23.17 |
@@ -31,7 +31,7 @@ Scraped 1043 apartment listings from [immobiliare.md](https://immobiliare.md), c
 - `scraper/load_to_sql.py` - Creating slite3 database
 - `notebooks/Real Estate Analysis.ipynb` - Full EDA + modeling pipeline
 - `sql/queries` - SQL queries
-- `dashboards` - Power BI dashboard
+- `dashboards/Real_estate_dashboards.pbix` - Interactive Power BI dashboard
 
 ## How to Run
 
@@ -64,9 +64,13 @@ Queries used in the analysis are in `sql/queries/` (includes a window-function q
 
 ## Dashboard
 
-An interactive Power BI dashboard (`dashboards/Real_estate_dashboards.pbix`) visualizes the cleaned data across three pages: sector analysis, feature drivers of price using the Random Forest feature importances, and a top-10 listings table powered by the `top_10` SQL view.
+An interactive Power BI dashboard (`dashboards/Real_estate_dashboards.pbix`) visualizes the analysis across three pages:
 
-To open it: run the notebook once to populate `aparts_cleaned`, then open the `.pbix` file in Power BI Desktop and refresh the data source.
+1. **Sector Analysis**: Listing counts, median prices, and mean-vs-median price comparison by sector which shows Ciocana's price stability.
+2. **Price Drivers**: Feature importance from the Random Forest model and scatter plot showing Area's dominance in price prediction.
+3. **Top Listings**: Top 10 most expensive apartments from the SQL `top_10` view with key details (sector, rooms, price, area).
+
+To open: Run the notebook once to populate `aparts_cleaned`, then open the `.pbix` file in Power BI Desktop and refresh the data source.
 
 ## Tech Stack
 
@@ -74,7 +78,8 @@ To open it: run the notebook once to populate `aparts_cleaned`, then open the `.
 - **Analysis**: pandas, numpy, matplotlib, seaborn
 - **ML**: scikit-learn (Linear Regression, Random Forest)
 - **Database**: sqlite, SQL (window functions, views)
-- **Dashobard**: Power BI
+- **BI**: Power BI
+
 ## Future Work
 
 - Expand data 
